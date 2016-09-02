@@ -26,7 +26,9 @@ object TreeComp {
       case Leaf(l) =>
         println(l)
       case Node(n) =>
-        for (i <- n) traverse(i)
+        // TODO may be with recursion
+        //for (i <- n) traverse(i)
+        n.foreach(i => traverse(i))
     }
   }
 
