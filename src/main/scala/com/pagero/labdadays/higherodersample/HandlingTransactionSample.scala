@@ -4,7 +4,7 @@ object HandlingTransactionSample {
 
   import Database._
 
-  def deleteIssuerConnection: Unit = {
+  def deleteIssuerConnection(criteria: TransactionCriteria): Unit = {
     db withTransaction {
       implicit session => {
         //deleteIssuer
@@ -13,7 +13,7 @@ object HandlingTransactionSample {
     }
   }
 
-  def deleteRecipientConnection: Unit = {
+  def deleteRecipientConnection(criteria: TransactionCriteria): Unit = {
     db withTransaction {
       implicit session => {
         //deleteRecipient
@@ -22,7 +22,7 @@ object HandlingTransactionSample {
     }
   }
 
-  def deletePayloadAndSaveLog: Unit = {
+  def deletePayloadAndSaveLog(criteria: TransactionCriteria): Unit = {
     db withTransaction {
       implicit session => {
         //deletePayload

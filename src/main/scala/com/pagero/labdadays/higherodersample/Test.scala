@@ -6,9 +6,9 @@ package com.pagero.labdadays.higherodersample
 object Test extends App with TransactionHandler {
 
   val handlingTransactionSample = HandlingTransactionSample
-  handlingTransactionSample.deleteIssuerConnection
-  handlingTransactionSample.deleteRecipientConnection
-  handlingTransactionSample.deletePayloadAndSaveLog
+  handlingTransactionSample.deleteIssuerConnection(new TransactionCriteria(1))
+  handlingTransactionSample.deleteRecipientConnection(new TransactionCriteria(1))
+  handlingTransactionSample.deletePayloadAndSaveLog(new TransactionCriteria(1))
 
 
   val handlingTransactionBitImprovedSample = HandlingTransactionBitImprovedSample
