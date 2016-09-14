@@ -18,17 +18,19 @@ object ParallelVsSequential extends App {
     val parallel2 = parallelMethod2
     val parallel3 = parallelMethod3
 
+    //Can run parallelly. But wait till each of them is finished
     val parallelButWaitForAll = for {
       _ <- parallel1
       _ <- parallel2
       _ <- parallel3
-    } yield println("These will run parallely.. Parallel ")
+    } yield println("These will run parallelly but will wait at the end for every future to get completed.. Parallel ")
 
+    //The following is good only if sequencialMethod2 depends on sequencialMethod1's output
     val sequencialInAll = for {
       _ <- sequencialMethod1
       _ <- sequencialMethod2
       _ <- sequencialMethod3
-    } yield println("These will run sequentialy.. Sequential ")
+    } yield println("These will run sequentialy waiting at till the final one is completed.. Sequential ")
 
 
     //Await is just for testing to keep the main running until others get finished
